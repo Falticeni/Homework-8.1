@@ -1,0 +1,47 @@
+--create table Author
+--(
+--AuthorID int primary key,
+--FirstName char (200),
+--LastName char (200),
+--BirthDate date,
+--);
+
+--INSERT INTO Author(AuthorID, FirstName, LastName, BirthDate)
+--VALUES (001, 'Robert', 'Ciocan', '1991-12-10')
+--INSERT INTO Author VALUES (002, 'Ion', 'Popescu', '1970-06-05')
+--INSERT INTO Author VALUES (003, 'Ana', 'Enescu', '1982-07-22')
+--INSERT INTO Author VALUES (004, 'Ioana', 'Filimon', '1975-03-08')
+--INSERT INTO Author VALUES (005, 'Andrei', 'Pop', '1975-12-13')
+--INSERT INTO Author VALUES (006, 'Mircea', 'Boroianu', '1981-10-04')
+--INSERT INTO Author VALUES (007, 'Mina', 'Ciocan', '2000-10-03')
+--INSERT INTO Author VALUES (008, 'Maria', 'Pietroi', '1968-09-04')
+--INSERT INTO Author VALUES (009, 'Adina', 'Baluta', '1991-11-05')
+--INSERT INTO Author VALUES (010, 'Alexandru', 'Dumuta', '1987-04-27')
+
+--Select * from Author
+--Delete from Author where BirthDate Between '1975-01-01' AND '1975-12-31'
+--Select * from Author;
+
+
+create table Book
+(
+Title char (200) primary key,
+PublisherName char (200),
+Year date,
+Price int,
+AuthorId int foreign key references Author(AuthorId),
+);
+
+Insert into Book values ('Biblia', 'Marcu', '2010', 200, 001)
+Insert into Book values ('Sensul e unic', 'Ion Popescu', '2002', 56, 002)
+Insert into Book values ('Linia e dreapta', 'Ana Enescu', '1999', 84, 003)
+Insert into Book values ('Viata nu- o linie dreapta', 'Ioana Filimon', '2003', 227, 004)
+Insert into Book values ('O poveste depre nimic', 'Andrei Pop', '2000', 162, 005)
+Insert into Book values ('Fericire', 'Mircea Boroianu', '2010', 15, 006)
+Insert into Book values ('XYZ', 'Mina Ciocan', '2010', 60, 007)
+Insert into Book values ('Litera "1"', 'Maria Pietroi', '2019', 100, 008)
+Insert into Book values ('Nimic', 'Adina Baluta', '2011', 350, 009)
+Insert into Book values ('Tastatura', 'Alexandru Dumuta', '2014', 175, 010)
+
+Delete from Book where Price <150
+Select * from Book
